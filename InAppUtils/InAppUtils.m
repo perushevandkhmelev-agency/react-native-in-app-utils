@@ -310,7 +310,7 @@ RCT_EXPORT_METHOD(receiptData:(RCTResponseSenderBlock)callback)
 
 + (NSDictionary *)parseIntroductoryPrice: (SKProduct *)product {
     if(@available(iOS 11.2, *)) {
-        if (product != nil && product.introductoryPrice != nil) {
+        if (product != nil && product.introductoryPrice != nil && product.introductoryPrice.priceLocale != nil) {
             // paymentMode: Returning as string for ease of use and code resilience
             NSString *paymentMode;
             switch (product.introductoryPrice.paymentMode) {
